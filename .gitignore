@@ -1,0 +1,21 @@
+# Strapi
+.next
+.cache
+.strapi
+build
+dist
+data.db
+data.db-journal
+node_modules
+exports
+.tmp
+.vscode
+.env
+.env.*
+!.env.example
+
+# Tests
+coverage
+
+# Logs
+*.log

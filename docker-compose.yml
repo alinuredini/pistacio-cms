@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: pistacio
+      POSTGRES_PASSWORD: pistacio
+      POSTGRES_DB: pistacio_cms
+    ports:
+      - "5432:5432"
+    volumes:
+      - pistacio_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pistacio -d pistacio_cms"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  cms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      DATABASE_CLIENT: postgres
+      DATABASE_URL: postgres://pistacio:pistacio@postgres:5432/pistacio_cms
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: ${APP_KEYS:?set in .env}
+      API_TOKEN_SALT: ${API_TOKEN_SALT:?set in .env}
+      JWT_SECRET: ${JWT_SECRET:?set in .env}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:?set in .env}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT:?set in .env}
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:1337}
+    ports:
+      - "1337:1337"
+    restart: unless-stopped
+
+volumes:
+  pistacio_pgdata:

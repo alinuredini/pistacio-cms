@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_column_groups",
+  "info": {
+    "displayName": "Column group",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    }
+  }
+}

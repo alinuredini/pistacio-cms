@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_sections",
+  "info": {
+    "singularName": "home-section",
+    "pluralName": "home-sections",
+    "displayName": "Home — Section",
+    "description": "Generic section block (eyebrow + icon + title + body + screenshot + optional column copy)."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "title"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "eyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "iconKey": {
+      "type": "enumeration",
+      "enum": ["puzzle", "desktop", "masked-hero", "money-stack", "blush"],
+      "default": "puzzle"
+    },
+    "iconBg": {
+      "type": "enumeration",
+      "enum": ["mint", "soft", "cool", "rose", "white"],
+      "default": "mint"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "body": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "screenshotKey": {
+      "type": "string"
+    },
+    "columns": {
+      "type": "component",
+      "component": "shared.column-group",
+      "repeatable": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

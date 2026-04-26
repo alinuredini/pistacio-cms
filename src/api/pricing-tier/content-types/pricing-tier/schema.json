@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_tiers",
+  "info": {
+    "singularName": "pricing-tier",
+    "pluralName": "pricing-tiers",
+    "displayName": "Pricing tier"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "name"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "tagline": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "price": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "period": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "includes": {
+      "type": "json",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

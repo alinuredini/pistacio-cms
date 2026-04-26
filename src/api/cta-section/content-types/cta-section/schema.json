@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "cta_sections",
+  "info": {
+    "singularName": "cta-section",
+    "pluralName": "cta-sections",
+    "displayName": "CTA section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

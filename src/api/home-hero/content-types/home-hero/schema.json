@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_heroes",
+  "info": {
+    "singularName": "home-hero",
+    "pluralName": "home-heroes",
+    "displayName": "Home — Hero",
+    "description": "Title + quote rendered above the hero illustration on /."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "quote": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

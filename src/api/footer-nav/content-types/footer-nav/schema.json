@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "footer_navs",
+  "info": {
+    "singularName": "footer-nav",
+    "pluralName": "footer-navs",
+    "displayName": "Footer navigation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "columns": {
+      "type": "component",
+      "component": "shared.link-column",
+      "repeatable": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "builtWith": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "location": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}
