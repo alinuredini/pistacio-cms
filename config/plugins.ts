@@ -1,4 +1,6 @@
-export default ({ env }) => ({
+import type { StrapiEnv } from "../types/strapi-env";
+
+export default ({ env }: { env: StrapiEnv }) => ({
   i18n: {
     enabled: true,
     config: {

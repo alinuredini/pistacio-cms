@@ -1,5 +1,5 @@
 /**
- * Seed Strapi from the Astro fallback content under `../src/content/*`.
+ * Seed Strapi from fallback content under `src/content/*` (import path is relative to `scripts/`).
  *
  * Usage: from project root
  *   npm run cms:seed
@@ -7,7 +7,7 @@
  * Notes:
  * - Idempotent: existing entries with the same `slug` are updated, not duplicated.
  * - Locales: writes both `en` (default) and `de` localizations.
- * - Requires Strapi to have been built once (so generated types exist).
+ * - Requires Strapi to have been built once if you rely on generated types elsewhere.
  */
 
 import { compileStrapi, createStrapi } from "@strapi/strapi";
@@ -25,7 +25,7 @@ interface Loaders {
 
 async function loadFallbacks(): Promise<Loaders> {
   // Lazy-resolve TS source via tsx loader. Path is relative to this file.
-  const home = await import("../../src/content/home");
+  const home = await import("../src/content/home");
   const data = home.homeContentByLocale;
   return {
     hero: { en: data.en.hero, de: data.de.hero },

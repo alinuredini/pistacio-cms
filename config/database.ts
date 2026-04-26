@@ -1,5 +1,7 @@
 import path from "node:path";
 
+import type { StrapiEnv } from "../types/strapi-env";
+
 const parseDatabaseUrl = (url: string) => {
   const parsed = new URL(url);
   return {
@@ -12,7 +14,7 @@ const parseDatabaseUrl = (url: string) => {
   };
 };
 
-export default ({ env }) => {
+export default ({ env }: { env: StrapiEnv }) => {
   const client = env("DATABASE_CLIENT", env("NODE_ENV") === "production" ? "postgres" : "sqlite");
 
   const connections = {
